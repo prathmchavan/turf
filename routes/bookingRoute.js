@@ -1,11 +1,12 @@
 const express = require('express');
 const router = express.Router();
-const userController = require('../controllers/userController');
+const bookingController=require("../controllers/bookingController");
 
-// Add a new user
-router.post('/', userController.createUser);
+router.post('/',bookingController.bookTurf );
 
-// Get all users (if needed)
-router.get('/', userController.getAllUsers);
+router.get('/', bookingController.getAllBookings);
+
+router.get('/:bookingId', bookingController.getBookingById);
+
 
 module.exports = router;

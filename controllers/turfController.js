@@ -21,22 +21,25 @@ exports.getTurfs = async (req, res) => {
 // Get a specific turf by ID
 exports.getTurfById = async (req, res) => {
   const turfId = req.params.turfId;
-
+  console.log(turfId);
   try {
     await dbClient.connect();
     const db = dbClient.db('turf');
     const turfCollection = db.collection('turf');
 
-    const turf = await turfCollection.findOne({ _id: ObjectId(turfId) });
+    const turf = await turfCollection.findOne({ _id: new ObjectId(turfId) });
 
     if (!turf) {
       return res.status(404).json({ success: false, message: "Turf not found" });
     }
 
     res.status(200).json({ success: true, data: turf, message: "Turf retrieved successfully" });
-  } catch (err) {
+  }
+   catch (err) {
     res.status(500).json({ success: false, message: "Error fetching turf" });
-  } finally {
+    console.log(err);
+  } 
+  finally {
     await dbClient.close();
   }
 };
