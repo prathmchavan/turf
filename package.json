@@ -1,0 +1,16 @@
+{
+  "name": "turf_backend",
+  "version": "1.0.0",
+  "description": "turf booking website",
+  "main": "index.js",
+  "scripts": {
+    "test": "npm run start"
+  },
+  "author": "aditya",
+  "license": "ISC",
+  "dependencies": {
+    "cors": "^2.8.5",
+    "express": "^4.19.2",
+    "mysql2": "^3.9.7"
+  }
+}
